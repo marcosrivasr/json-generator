@@ -1,0 +1,9 @@
+{
+    "id": "uuid",
+    "age": "number",
+    "phone": "phone",
+    "friends": [
+        {"repeat": 5},
+        {"name": "name"}
+    ]
+}
