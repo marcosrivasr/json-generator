@@ -1,6 +1,8 @@
 {
     "id": "uuid",
-    "age": "number",
+    "name": "first-name",
+    "last-name": "last-name",
+    "age": "age",
     "phone": "phone",
     "friends": [
         {"repeat": 5},
