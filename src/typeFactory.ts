@@ -1,10 +1,10 @@
-import { v4 as uuidv4 } from 'uuid';
 import {generateRandomFirstName, generateRandomLastName} from './types/names';
 import generateRandomAge from './types/age';
 import {generateRandomNumber, generateRandomDecimal, generateRandomPrice} from './types/number';
 import generateRandomPhone from './types/phone';
 import generateRandomCreditCardNumber from './types/creditcard';
 import {generateRandomDate} from './types/date';
+import { generateRandomId, generateRandomIndex, generateRandomUUID } from './types/id';
 
 export default class TypeFactory{
 
@@ -17,12 +17,15 @@ export default class TypeFactory{
     getDataValue(key:string, type:string):[string, any]{
         switch(type){
             case 'id':
+                return [key, generateRandomId()];
+            break;
+            case 'index':
                 const id = this.id;
                 this.id++;
-                return [key, id];
+                return [key, generateRandomIndex(id)];
             break;
             case 'uuid':
-                return [key, uuidv4()];
+                return [key, generateRandomUUID()];
             break;
             case 'number':
                 return [key, generateRandomNumber()];
