@@ -5,16 +5,27 @@ function loadFile(filename: string){
     return JSON.parse(content);
 }
 
+function capitalizeFirstLetter(string: string):string{
+    if(typeof string==undefined) return '';
+    var firstLetter = string[0] || string.charAt(0);
+    return firstLetter ? firstLetter.toUpperCase() + string.slice(1) : '';
+}
+
 export function generateRandomFirstName(){
     const filename = './data/names.json';
+
     const json = loadFile(filename);
-    
-    return json[Math.floor(Math.random() * json.length)];
+    const rnd = Math.floor(Math.random() * json.length);
+    const text = capitalizeFirstLetter(json[rnd].toLowerCase());
+    return text;
 }
 
 export function generateRandomLastName(){
     const filename = './data/lastnames.json';
     const json = loadFile(filename);
+    const rnd = Math.floor(Math.random() * json.length);
+    const text = capitalizeFirstLetter(json[rnd].toLowerCase());
     
-    return json[Math.floor(Math.random() * json.length)];
+    return text;
 }
+
