@@ -1,5 +1,7 @@
 {
     "id": "uuid",
+    "id2": "id",
+    "id3": "id",
     "name": "first-name",
     "last-name": "last-name",
     "age": "age",
@@ -7,11 +9,24 @@
     "grade": "decimal",
     "price": "price",
     "card": "credit-card",
+    "aniversary": "date",
     "friends": [
-        {"repeat": 5},
+        {"repeat": 15},
         {
+            "id": "id",
             "name": "first-name",
             "last-name": "last-name"
         }
-    ]
+    ],
+    "check-ins":{
+        "id": "id",
+        "name": "first-name",
+        "opened": "date",
+        "users": [
+            {"repeat": 9},
+            {
+                "id": "uuid"
+            }
+        ]
+    }
 }
