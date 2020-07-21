@@ -4,8 +4,14 @@
     "last-name": "last-name",
     "age": "age",
     "phone": "phone",
+    "grade": "decimal",
+    "price": "price",
+    "card": "credit-card",
     "friends": [
         {"repeat": 5},
-        {"name": "name"}
+        {
+            "name": "first-name",
+            "last-name": "last-name"
+        }
     ]
 }
