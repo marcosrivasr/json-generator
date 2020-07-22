@@ -5,6 +5,7 @@ import generateRandomPhone from './types/phone';
 import generateRandomCreditCardNumber from './types/creditcard';
 import {generateRandomDate} from './types/date';
 import { generateRandomId, generateRandomIndex, generateRandomUUID } from './types/id';
+import { generateRandomBoolean } from './types/boolean';
 
 export default class TypeFactory{
 
@@ -53,6 +54,9 @@ export default class TypeFactory{
             break;
             case 'date':
                 return [key, generateRandomDate()];
+            break;
+            case 'boolean':
+                return [key, generateRandomBoolean()];
             break;
             default:
                 return ['',''];
