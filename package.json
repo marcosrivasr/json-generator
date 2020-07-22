@@ -1,13 +1,16 @@
 {
-  "name": "fake-json",
+  "name": "json-generator",
   "version": "1.0.0",
-  "description": "Create faje JSON data to test your apps",
-  "main": "index.js",
+  "description": "Generate JSON data samples to test your apps",
+  "main": "out/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-node src/index"
   },
-  "author": "",
+  "author": "Marcos Rivas Rojas",
   "license": "ISC",
+  "bin": {
+    "jg": "out/index.js"
+  },
   "devDependencies": {
     "@types/express": "^4.17.6",
     "@types/node": "^14.0.14",
@@ -17,6 +20,8 @@
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "uuid": "^8.2.0"
+    "@types/yargs": "^15.0.5",
+    "uuid": "^8.2.0",
+    "yargs": "^15.4.1"
   }
 }

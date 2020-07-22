@@ -11,9 +11,9 @@
     "card": "credit-card",
     "aniversary": "date",
     "friends": [
-        {"repeat": 15},
+        {"repeat": 5},
         {
-            "id": "id",
+            "id": "index",
             "name": "first-name",
             "last-name": "last-name"
         }
@@ -23,9 +23,11 @@
         "name": "first-name",
         "opened": "date",
         "users": [
-            {"repeat": 9},
+            {"repeat": 5},
             {
-                "id": "uuid"
+                "id": "uuid",
+                "index": "index",
+                "married": "boolean"
             }
         ]
     }
