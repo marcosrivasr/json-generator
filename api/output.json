@@ -1,0 +1,72 @@
+{
+	"id": "d7fe7432-a20f-43fc-925b-5950e45ff912",
+	"id2": "7840350521572642272",
+	"id3": "2862415450260538722",
+	"name": "Shelby",
+	"last-name": "Blankenship",
+	"age": 26,
+	"phone": "(282) 420-6345",
+	"grade": 929.598,
+	"price": "$817.86",
+	"card": "0263-0670-8217-1057",
+	"aniversary": "06-06-2014",
+	"friends": [
+		{
+			"id": "0",
+			"name": "Fern",
+			"last-name": "Jackson"
+		},
+		{
+			"id": "1",
+			"name": "Claude",
+			"last-name": "Foreman"
+		},
+		{
+			"id": "2",
+			"name": "Letitia",
+			"last-name": "Hebert"
+		},
+		{
+			"id": "3",
+			"name": "Lena",
+			"last-name": "Durham"
+		},
+		{
+			"id": "4",
+			"name": "Angelique",
+			"last-name": "Perry"
+		}
+	],
+	"check-ins": {
+		"id": "1341812867728281776",
+		"name": "Jami",
+		"opened": "08-29-2029",
+		"users": [
+			{
+				"id": "30f1d4c7-89c4-4816-80f8-1d8a3d7de37b",
+				"index": "0",
+				"married": true
+			},
+			{
+				"id": "18920ade-8d14-465a-a9a0-c828869f0fb0",
+				"index": "1",
+				"married": true
+			},
+			{
+				"id": "d1e9a314-38d0-4de0-a553-749ffdd96abc",
+				"index": "2",
+				"married": true
+			},
+			{
+				"id": "51d5794f-90e2-434c-9cef-71d90e8be8dc",
+				"index": "3",
+				"married": false
+			},
+			{
+				"id": "be8bcabd-8be7-4e6b-afdf-46d822db0762",
+				"index": "4",
+				"married": false
+			}
+		]
+	}
+}
