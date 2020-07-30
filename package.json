@@ -1,7 +1,7 @@
 {
-  "name": "json-generator",
+  "name": "super-json-generator",
   "version": "1.0.0",
-  "description": "Generate JSON data samples to test your apps",
+  "description": "Generate JSON data samples based on a template, including multiple data types and options",
   "main": "out/index.js",
   "scripts": {
     "test": "ts-node src/index"
@@ -9,7 +9,7 @@
   "author": "Marcos Rivas Rojas",
   "license": "ISC",
   "bin": {
-    "jg": "out/index.js"
+    "jsong": "out/index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
