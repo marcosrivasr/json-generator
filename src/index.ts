@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 import Generator from './generator';
 import { join } from 'path';
+import { existsSync } from 'fs';
+import { exit } from 'process';
 
 const argv = require('yargs')
+    .usage('============================\n Welcome to JSON Generator!\n============================\n')
     .usage('Usage: $0 option message \n e.g $0 -s message')
     .alias('i', 'input')
     .nargs('i', 1)
@@ -17,13 +20,22 @@ const argv = require('yargs')
     .argv
 
 if(argv.i != undefined){
-    const generator = new Generator(argv.i);
+    if(existsSync(argv.i)){
+        const generator = new Generator(argv.i);
+        let output = undefined;
 
-    if(argv.o === undefined){
-        generator.generateJSON(join(process.env.pwd!,'./output.json'));
+        if(argv.o === undefined){
+            output = join(process.env.pwd!,'./output.json');
+            generator.generateJSON(output);
+        }else{
+            output = argv.o;
+            generator.generateJSON(argv.o);
+        }
+        console.log('JSON file created successfully in ', output);
     }else{
-        generator.generateJSON(argv.o);
+        console.error('FILE does not exist. Make sure the the file exists and the path is correct.');
     }
+    
     
 
 }
