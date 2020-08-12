@@ -10,6 +10,7 @@
     "price": "price",
     "card": "credit-card",
     "aniversary": "date",
+    "color": "choice red blue yellow",
     "friends": [
         {"repeat": 5},
         {
@@ -20,7 +21,7 @@
     ],
     "check-ins":{
         "id": "id",
-        "name": "first-name",
+        "name": "full-name",
         "opened": "date",
         "users": [
             {"repeat": 5},

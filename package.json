@@ -4,12 +4,12 @@
   "description": "Generate JSON data samples based on a template, including multiple data types and options",
   "main": "out/index.js",
   "scripts": {
-    "test": "ts-node src/index"
+    "test": "ts-node src/index -i template.json -o output.json"
   },
   "author": "Marcos Rivas Rojas",
   "license": "ISC",
   "bin": {
-    "jsong": "out/index.js"
+    "json": "out/index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
