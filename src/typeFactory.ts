@@ -6,6 +6,7 @@ import generateRandomCreditCardNumber from './types/creditcard';
 import {generateRandomDate} from './types/date';
 import { generateRandomId, generateRandomIndex, generateRandomUUID } from './types/id';
 import { generateRandomBoolean } from './types/boolean';
+import { generateRandomChoice } from './types/choice';
 
 export default class TypeFactory{
 
@@ -14,8 +15,17 @@ export default class TypeFactory{
     constructor(){
         this.id = 0;
     }
-
-    getDataValue(key:string, type:string):[string, any]{
+    /**
+     * 
+     * @param key name of the parameter 
+     * @param type data type with arguments
+     */
+    getDataValue(key:string, func:string):[string, any]{
+        const inputs = func.split(' ');
+        
+        const type = inputs[0];
+        inputs.shift();
+        const args = inputs;
         switch(type){
             case 'id':
                 return [key, generateRandomId()];
@@ -61,8 +71,11 @@ export default class TypeFactory{
             case 'boolean':
                 return [key, generateRandomBoolean()];
             break;
+            case 'choice':
+                return [key, generateRandomChoice(args)];
+            break;
             default:
-                return ['',''];
+                throw new Error('Data type ${inputs[0]} not recorgnized');
         } 
     }
 }
