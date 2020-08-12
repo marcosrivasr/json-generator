@@ -29,3 +29,7 @@ export function generateRandomLastName(){
     return text;
 }
 
+export function generateRandomFullName(){
+    return generateRandomFirstName() + ' ' + generateRandomLastName(); 
+}
+

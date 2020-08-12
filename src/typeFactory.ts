@@ -1,4 +1,4 @@
-import {generateRandomFirstName, generateRandomLastName} from './types/names';
+import {generateRandomFirstName, generateRandomLastName, generateRandomFullName} from './types/names';
 import generateRandomAge from './types/age';
 import {generateRandomNumber, generateRandomDecimal, generateRandomPrice} from './types/number';
 import generateRandomPhone from './types/phone';
@@ -36,6 +36,9 @@ export default class TypeFactory{
             break;
             case 'last-name':
                 return [key, generateRandomLastName()];
+            break;
+            case 'full-name':
+                return [key, generateRandomFullName()];
             break;
             case 'age':
                 return [key, generateRandomAge()];
