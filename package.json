@@ -1,6 +1,6 @@
 {
   "name": "mrr-json-generator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Generate JSON data samples based on a template, including multiple data types and options",
   "main": "out/index.js",
   "scripts": {
