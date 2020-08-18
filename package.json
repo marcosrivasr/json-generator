@@ -1,5 +1,5 @@
 {
-  "name": "super-json-generator",
+  "name": "mrr-json-generator",
   "version": "1.0.0",
   "description": "Generate JSON data samples based on a template, including multiple data types and options",
   "main": "out/index.js",

@@ -5,7 +5,7 @@ Super JSON Generator is a tool to generate sample data in JSON format for testin
 ## Installation
 
 ```console
-$ npm install -g super-json-generator
+$ npm install -g mrr-json-generator
 ``` 
 
 ## Usage
@@ -46,5 +46,5 @@ To use the utility you need to create a simple JSON template and specify the pro
 and then execute
 
 ```console
-$ jsong -i origin/template.json -o destination/output.json
+$ json -i origin/template.json -o destination/output.json
 ```
