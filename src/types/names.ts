@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import { join } from 'path';
 
 function loadFile(filename: string){
     const content = readFileSync(filename, 'utf-8');
@@ -12,7 +13,7 @@ function capitalizeFirstLetter(string: string):string{
 }
 
 export function generateRandomFirstName(){
-    const filename = 'src/data/names.json';
+    const filename = join(__dirname, '/data/names.json');
 
     const json = loadFile(filename);
     const rnd = Math.floor(Math.random() * json.length);
@@ -21,7 +22,7 @@ export function generateRandomFirstName(){
 }
 
 export function generateRandomLastName(){
-    const filename = 'src/data/lastnames.json';
+    const filename = join(__dirname, '/data/lastnames.json');
     const json = loadFile(filename);
     const rnd = Math.floor(Math.random() * json.length);
     const text = capitalizeFirstLetter(json[rnd].toLowerCase());

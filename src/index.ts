@@ -6,7 +6,7 @@ import { exit } from 'process';
 
 const argv = require('yargs')
     .usage('============================\n Welcome to JSON Generator!\n============================\n')
-    .usage('Usage: $0 option message \n e.g $0 -s message')
+    .usage('Usage: json -i inputfile -o outputfile \n e.g json -i template.json -o api.json')
     .alias('i', 'input')
     .nargs('i', 1)
     .describe('i', 'Input file')
@@ -21,6 +21,7 @@ const argv = require('yargs')
 
 if(argv.i != undefined){
     if(existsSync(argv.i)){
+        
         const generator = new Generator(argv.i);
         let output = undefined;
 
