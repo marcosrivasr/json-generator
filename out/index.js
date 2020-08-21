@@ -9,7 +9,7 @@ const path_1 = require("path");
 const fs_1 = require("fs");
 const argv = require('yargs')
     .usage('============================\n Welcome to JSON Generator!\n============================\n')
-    .usage('Usage: $0 option message \n e.g $0 -s message')
+    .usage('Usage: json -i inputfile -o outputfile \n e.g json -i template.json -o api.json')
     .alias('i', 'input')
     .nargs('i', 1)
     .describe('i', 'Input file')

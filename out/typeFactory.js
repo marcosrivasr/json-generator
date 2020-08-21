@@ -11,11 +11,21 @@ const creditcard_1 = __importDefault(require("./types/creditcard"));
 const date_1 = require("./types/date");
 const id_1 = require("./types/id");
 const boolean_1 = require("./types/boolean");
+const choice_1 = require("./types/choice");
 class TypeFactory {
     constructor() {
         this.id = 0;
     }
-    getDataValue(key, type) {
+    /**
+     *
+     * @param key name of the parameter
+     * @param type data type with arguments
+     */
+    getDataValue(key, func) {
+        const inputs = func.split(' ');
+        const type = inputs[0];
+        inputs.shift();
+        const args = inputs;
         switch (type) {
             case 'id':
                 return [key, id_1.generateRandomId()];
@@ -36,6 +46,9 @@ class TypeFactory {
                 break;
             case 'last-name':
                 return [key, names_1.generateRandomLastName()];
+                break;
+            case 'full-name':
+                return [key, names_1.generateRandomFullName()];
                 break;
             case 'age':
                 return [key, age_1.default()];
@@ -58,8 +71,11 @@ class TypeFactory {
             case 'boolean':
                 return [key, boolean_1.generateRandomBoolean()];
                 break;
+            case 'choice':
+                return [key, choice_1.generateRandomChoice(args)];
+                break;
             default:
-                return ['', ''];
+                throw new Error('Data type ${inputs[0]} not recorgnized');
         }
     }
 }
