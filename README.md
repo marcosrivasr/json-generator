@@ -1,6 +1,6 @@
-# Super JSON Generator
+# JSON Generator
 
-Super JSON Generator is a tool to generate sample data in JSON format for testing purposes. It includes a variety of data types to randomly generate and simple iteration configurations to generate massive amounts of data.
+JSON Generator is a tool to generate sample data in JSON format for testing purposes. It includes a variety of data types to randomly generate and simple iteration configurations to generate massive amounts of data.
 
 ## Installation
 
