@@ -5,6 +5,8 @@
     "title": "title",
     "text": "paragraph",
     "name": "first-name",
+    "city": "city",
+    "country": "country",
     "last-name": "last-name",
     "age": "age",
     "phone": "phone",

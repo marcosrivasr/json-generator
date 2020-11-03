@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateRandomParagraph = exports.generateRandomTitle = exports.generateRandomLorem = void 0;
+exports.generateRandomParagraph = exports.generateRandomTitle = void 0;
 function generateRandomLorem(wordsPerSentence, sentencesPerParagraph) {
     let sentences = [];
     let paragraphs = [];
@@ -14,7 +14,6 @@ function generateRandomLorem(wordsPerSentence, sentencesPerParagraph) {
     }
     return paragraphs.join('. ');
 }
-exports.generateRandomLorem = generateRandomLorem;
 function generateRandomTitle() {
     return generateRandomLorem(4, 1);
 }
