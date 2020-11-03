@@ -1,5 +1,5 @@
 
-export function generateRandomLorem(wordsPerSentence:number, sentencesPerParagraph:number){
+function generateRandomLorem(wordsPerSentence:number, sentencesPerParagraph:number){
 
     let sentences:string[] = [];
     let paragraphs:string[] = [];
