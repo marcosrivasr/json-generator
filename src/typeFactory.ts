@@ -7,6 +7,7 @@ import {generateRandomDate} from './types/date';
 import { generateRandomId, generateRandomIndex, generateRandomUUID } from './types/id';
 import { generateRandomBoolean } from './types/boolean';
 import { generateRandomChoice } from './types/choice';
+import { generateRandomTitle, generateRandomParagraph } from './types/lorem';
 
 export default class TypeFactory{
 
@@ -73,6 +74,12 @@ export default class TypeFactory{
             break;
             case 'choice':
                 return [key, generateRandomChoice(args)];
+            break;
+            case 'title':
+                return [key, generateRandomTitle()];
+            break;
+            case 'paragraph':
+                return [key, generateRandomParagraph()];
             break;
             default:
                 throw new Error('Data type ${inputs[0]} not recorgnized');
