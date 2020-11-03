@@ -2,6 +2,8 @@
     "id": "uuid",
     "id2": "id",
     "id3": "id",
+    "title": "title",
+    "text": "paragraph",
     "name": "first-name",
     "last-name": "last-name",
     "age": "age",
