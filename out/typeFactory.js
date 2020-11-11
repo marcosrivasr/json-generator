@@ -12,6 +12,8 @@ const date_1 = require("./types/date");
 const id_1 = require("./types/id");
 const boolean_1 = require("./types/boolean");
 const choice_1 = require("./types/choice");
+const lorem_1 = require("./types/lorem");
+const cities_1 = require("./types/cities");
 class TypeFactory {
     constructor() {
         this.id = 0;
@@ -73,6 +75,18 @@ class TypeFactory {
                 break;
             case 'choice':
                 return [key, choice_1.generateRandomChoice(args)];
+                break;
+            case 'title':
+                return [key, lorem_1.generateRandomTitle()];
+                break;
+            case 'paragraph':
+                return [key, lorem_1.generateRandomParagraph()];
+                break;
+            case 'city':
+                return [key, cities_1.getRandomCity()];
+                break;
+            case 'country':
+                return [key, cities_1.getRandomCountry()];
                 break;
             default:
                 throw new Error('Data type ${inputs[0]} not recorgnized');
