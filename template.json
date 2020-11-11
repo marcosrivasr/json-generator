@@ -4,6 +4,7 @@
     "id3": "id",
     "title": "title",
     "text": "paragraph",
+    "todo": "text",
     "name": "first-name",
     "city": "city",
     "country": "country",
