@@ -1,4 +1,4 @@
-import {generateRandomFirstName, generateRandomLastName, generateRandomFullName} from './types/names';
+import {generateRandomFirstName, generateRandomLastName, generateRandomFullName, generateRandomCompanyName} from './types/names';
 import generateRandomAge from './types/age';
 import {generateRandomNumber, generateRandomDecimal, generateRandomPrice} from './types/number';
 import generateRandomPhone from './types/phone';
@@ -9,6 +9,7 @@ import { generateRandomBoolean } from './types/boolean';
 import { generateRandomChoice } from './types/choice';
 import { generateRandomTitle, generateRandomParagraph, generateRandomText } from './types/lorem';
 import { getRandomCity, getRandomCountry} from './types/cities';
+import { generateRandomEmail } from './types/email';
 
 export default class TypeFactory{
 
@@ -88,11 +89,18 @@ export default class TypeFactory{
             case 'city':
                 return [key, getRandomCity()];
             break;
+            
             case 'country':
                 return [key, getRandomCountry()];
             break;
+            case 'company':
+                return [key, generateRandomCompanyName()];
+            break;
+            case 'email':
+                return [key, generateRandomEmail()];
+            break;
             default:
-                throw new Error('Data type ${inputs[0]} not recorgnized');
+                throw new Error(`Data type ${inputs[0]} not recorgnized`);
         } 
     }
 }
