@@ -17,10 +17,13 @@ function generateRandomLorem(wordsPerSentence:number, sentencesPerParagraph:numb
 }
 
 export function generateRandomTitle(){
-    return generateRandomLorem(4, 1);
+    return generateRandomLorem(6, 1);
 }
 export function generateRandomParagraph(){
     return generateRandomLorem(5, 8);
+}
+export function generateRandomText(){
+    return generateRandomLorem(4, 1);
 }
 
 const WORDS = [
