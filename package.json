@@ -4,7 +4,8 @@
   "description": "Generate JSON data samples based on a template, including multiple data types and options",
   "main": "out/index.js",
   "scripts": {
-    "test": "ts-node src/index -i template.json -o output.json"
+    "test": "ts-node src/index -i template.json -o output.json",
+    "todos": "ts-node src/index -i template-todos.json -o output-todos.json"
   },
   "author": "Marcos Rivas Rojas",
   "license": "ISC",
