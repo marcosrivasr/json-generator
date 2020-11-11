@@ -21,7 +21,9 @@
         {
             "id": "index",
             "name": "first-name",
-            "last-name": "last-name"
+            "last-name": "last-name",
+            "company": "company",
+            "email": "email"
         }
     ],
     "check-ins":{
