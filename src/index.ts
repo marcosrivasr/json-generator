@@ -4,7 +4,8 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 import { exit } from 'process';
 
-const argv = require('yargs')
+
+/* const argv = require('yargs')
     .usage('============================\n Welcome to JSON Generator!\n============================\n')
     .usage('Usage: json -i inputfile -o outputfile \n e.g json -i template.json -o api.json')
     .alias('i', 'input')
@@ -36,10 +37,30 @@ if(argv.i != undefined){
     }else{
         console.error('FILE does not exist. Make sure the the file exists and the path is correct.');
     }
-    
-    
+} */
 
-}
+var argv = require('yargs/yargs')(process.argv.slice(2))
+.command('create', 'Generate a JSON file based on a template', {
+    url: {
+        alias: 'u',
+        default: 'http://yargs.js.org/'
+    }
+})
+.command('serve', 'Run the JSON server', {
+    url: {
+        alias: 'u',
+        default: 'http://yargs.js.org/'
+    }
+})
+.command('load', 'Run the JSON server with a new template', {
+    url: {
+        alias: 'u',
+        default: 'http://yargs.js.org/'
+    }
+})
+.argv;
+
+console.log(argv);
     
 
 /*
