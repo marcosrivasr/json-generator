@@ -1,8 +1,10 @@
 import express from 'express';
 import {join, basename} from 'path';
-
 import { readFile } from 'fs/promises';
+import cors from 'cors';
 const app = express();
+
+app.use(cors());
 
 app.get('/:name', async (req, res) => {
     const filename = req.params.name;
