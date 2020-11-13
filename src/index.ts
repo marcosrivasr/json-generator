@@ -4,6 +4,9 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 import { exit } from 'process';
 
+import open from 'open';
+import { exec } from 'child_process';
+
 
 /* const argv = require('yargs')
     .usage('============================\n Welcome to JSON Generator!\n============================\n')
@@ -40,35 +43,66 @@ if(argv.i != undefined){
 } */
 
 var argv = require('yargs/yargs')(process.argv.slice(2))
-.command('create', 'Generate a JSON file based on a template', {
-    url: {
-        alias: 'u',
-        default: 'http://yargs.js.org/'
-    }
+.command({ 
+    command: 'generate', 
+    describe: 'Generates a JSON output file based on a template', 
+    builder: { 
+        source: { 
+            describe: 'JSON template path', 
+            demandOption: true,  // Required 
+            type: 'string'     
+        }, 
+        destination: {   
+            describe: 'File destination', 
+            demandOption: true, 
+            type: 'string'
+        } 
+    }, 
+  
+    // Function for your command 
+    handler(argv:any) { 
+        const source = join(process.env.pwd!, argv.source);
+        if(existsSync(source)){
+            const generator = new Generator(source);
+            const dest = join(process.env.pwd!, argv.destination);
+            generator.generateJSON(dest);
+        }else{
+            console.log(`Source file doesn't exist`);
+        }
+        
+    } 
 })
-.command('serve', 'Run the JSON server', {
-    url: {
-        alias: 'u',
-        default: 'http://yargs.js.org/'
-    }
+.command({ 
+    command: 'load', 
+    describe: 'Load a new template and run the server', 
+    builder: { 
+        source: { 
+            describe: 'JSON template path', 
+            demandOption: true,  // Required 
+            type: 'string'     
+        }
+    }, 
+  
+    // Function for your command 
+    handler(argv:any) { 
+       console.log('Work in progress...');
+    } 
 })
-.command('load', 'Run the JSON server with a new template', {
-    url: {
-        alias: 'u',
-        default: 'http://yargs.js.org/'
-    }
+.command({ 
+    command: 'serve', 
+    describe: 'Run the server', 
+    builder: { 
+        source: { 
+            describe: 'JSON template path', 
+            demandOption: true,  // Required 
+            type: 'string'     
+        }
+    }, 
+  
+    // Function for your command 
+    handler(argv:any) { 
+        console.log('In progress...');
+    } 
 })
 .argv;
-
-console.log(argv);
-    
-
-/*
-
-const generator = new Generator('./template.json');
-
-generator.generateJSON('./output.json');
-*/
-
-
 
