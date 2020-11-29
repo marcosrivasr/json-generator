@@ -2,9 +2,10 @@
     "todos": [
         {"repeat": 100},
         {
-            "id": "id",
-            "text": "text",
-            "completed": "boolean"
+            "id": "uuid",
+            "text": "title",
+            "completed": "boolean",
+            "createdon": "date"
         }
     ]
 }
