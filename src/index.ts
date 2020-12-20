@@ -8,7 +8,7 @@ import open from 'open';
 import { exec } from 'child_process';
 
 
-/* const argv = require('yargs')
+const argv = require('yargs')
     .usage('============================\n Welcome to JSON Generator!\n============================\n')
     .usage('Usage: json -i inputfile -o outputfile \n e.g json -i template.json -o api.json')
     .alias('i', 'input')
@@ -40,9 +40,9 @@ if(argv.i != undefined){
     }else{
         console.error('FILE does not exist. Make sure the the file exists and the path is correct.');
     }
-} */
+}
 
-var argv = require('yargs/yargs')(process.argv.slice(2))
+/* var argv = require('yargs/yargs')(process.argv.slice(2))
 .command({ 
     command: 'generate', 
     describe: 'Generates a JSON output file based on a template', 
@@ -105,4 +105,4 @@ var argv = require('yargs/yargs')(process.argv.slice(2))
     } 
 })
 .argv;
-
+ */
