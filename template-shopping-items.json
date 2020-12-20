@@ -1,0 +1,12 @@
+{
+    "items": [
+        {"repeat": 50},
+        {
+            "id": "uuid",
+            "title": "title",
+            "price": "decimal",
+            "quantity": "age",
+            "completed": "boolean"
+        }
+    ]
+}
