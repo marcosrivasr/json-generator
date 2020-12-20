@@ -1,11 +1,34 @@
 import express from 'express';
 import {join, basename} from 'path';
-import { readFile } from 'fs/promises';
+import { readFile, readdir } from 'fs/promises';
+
 import cors from 'cors';
 
 const app = express();
-
+let filenames:string[] = [];
 app.use(cors());
+app.set('views', './src/views');
+app.set('view engine', 'pug');
+
+app.get('/', async (req, res) => {
+    filenames = [];
+    try{
+        const files = await readdir('./src/apis', 'utf-8');
+        
+        files.forEach(file =>{
+            if(filenames.indexOf('.json')> -1){
+            }
+            filenames.push(file);
+        });
+        console.log(filenames);
+        res.render('home', {
+            files: filenames,
+            res: 'yes'
+        });
+    }catch(error){
+        console.error(error);
+    }
+});
 
 app.get('/:name', async (req, res) => {
     const filename = req.params.name;
