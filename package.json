@@ -6,7 +6,8 @@
   "scripts": {
     "test": "ts-node src/index --source template.json --destination output.json",
     "todos": "ts-node src/index --source template-todos.json --destination output-todos.json",
-    "comments": "ts-node src/index --source template-comments.json --destination output-comments.json"
+    "comments": "ts-node src/index --source template-comments.json --destination output-comments.json",
+    "shopping": "ts-node src/index -i template-shopping-items.json -o output-shopping-items.json"
   },
   "author": "Marcos Rivas Rojas",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "@types/cors": "^2.8.8",
     "@types/express": "^4.17.6",
     "@types/node": "^14.0.14",
+    "@types/pug": "^2.0.4",
     "@types/uuid": "^8.0.0",
     "@types/yargs": "^15.0.9",
     "express": "^4.17.1",
@@ -26,6 +28,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "open": "^7.3.0",
+    "pug": "^3.0.0",
     "uuid": "^8.2.0",
     "yargs": "^15.4.1"
   }
