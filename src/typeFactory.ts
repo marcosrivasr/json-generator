@@ -23,7 +23,7 @@ export default class TypeFactory{
      * @param key name of the parameter 
      * @param type data type with arguments
      */
-    getDataValue(key:string, func:string):[string, any]{
+    getDataValue(key:string, func:string):[string, string|number|boolean]{
         const inputs = func.split(' ');
         
         const type = inputs[0];
