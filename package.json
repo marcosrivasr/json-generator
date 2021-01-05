@@ -7,7 +7,8 @@
     "test": "ts-node src/index --source template.json --destination output.json",
     "todos": "ts-node src/index --source template-todos.json --destination output-todos.json",
     "comments": "ts-node src/index --source template-comments.json --destination output-comments.json",
-    "shopping": "ts-node src/index -i template-shopping-items.json -o output-shopping-items.json"
+    "shopping": "ts-node src/index -i template-shopping-items.json -o output-shopping-items.json",
+    "serve": "ts-node src/server"
   },
   "author": "Marcos Rivas Rojas",
   "license": "ISC",
