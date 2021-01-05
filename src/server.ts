@@ -1,10 +1,12 @@
 import express from 'express';
 import {join, basename} from 'path';
-import { readFile, readdir } from 'fs/promises';
+import { readFile, readdir, writeFile } from 'fs/promises';
+import {existsSync} from 'fs';
 
 import cors from 'cors';
 import { allowedNodeEnvironmentFlags } from 'process';
 import Generator from './generator';
+import { fstat } from 'fs';
 
 const app = express();
 let filenames:string[] = [];
@@ -37,21 +39,54 @@ app.get('/actions/add', (req, res) => {
     res.render('new');
 });
 app.post('/actions/create', (req, res) => {
-    const {data, name} = req.body;
+    const {data} = req.body;
     console.log(req.body);
     if(data == '' || data == undefined){
         res.render('new', {
-            error:'Fill the name of the dataset and the content before'
+            error:'No JSON data found'
         });
         return;
     }
-    const json = JSON.parse(data);
+    let json;
     const generator = new Generator();
-    const result = generator.createJSON(json);
-    res.render('new', {
-        src: data,
-        result: result
-    });
+    try{
+        json = JSON.parse(data);
+        const result = generator.createJSON(json);
+        res.render('new', {
+            src: data,
+            result: result
+        });
+    }catch(error){
+        res.render('new', {
+            error:`There's an error on your JSON syntax`
+        });
+        return;
+    } 
+});
+
+app.post('/actions/save', async (req, res) => {
+    const {name, data, src} = req.body;
+
+    if(!name || !data){
+        res.render('new', {error: 'Fill the fields correctly'});
+        return;
+    }
+
+    const filename = './src/apis/'+ name + '.json';
+
+    if(existsSync(filename)){
+        res.render('new', {result: data, src: src, name: name, error: `File ${name}.json already exists, delete it before or choose another name`});
+        return;
+    }
+    
+    try{
+        const response = await writeFile(filename, data, 'utf-8');
+        
+    }catch(error){
+        console.log(error);
+        throw new Error(error);
+    }
+    res.redirect('/');
 });
 
 app.get('/:name', async (req, res) => {
