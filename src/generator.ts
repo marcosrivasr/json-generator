@@ -7,11 +7,16 @@ export default class Generator{
     private output:[string, string|number][]=[];
     private filecontent:string = '';
 
-    constructor(filename:string){
-        this.filecontent = JSON.parse(readFileSync(filename, 'utf8'));
+    constructor(filename?:string){
         this.factory = new TypeFactory();
+        if(filename !== undefined){
+            this.filecontent = JSON.parse(readFileSync(filename, 'utf8'));
+        }
     }
-
+    /**
+     * Generates a new JSON file with the structure
+     * @param filename Filename for the output file
+     */
     generateJSON(filename:string){
         this.output = this.parse(this.filecontent, this.factory!);
 
@@ -20,6 +25,17 @@ export default class Generator{
         writeFileSync(filename, JSON.stringify(finalJSON,null,"\t"), "UTF-8");
     }
 
+    createJSON(text:string):string{
+        const output = this.parse(text, this.factory!);
+        const finalJSON = Object.fromEntries(output);
+        return JSON.stringify(finalJSON,null, '\t');
+    }
+
+    /**
+     * 
+     * @param json JSON text
+     * @param factory 
+     */
     private parse(json:any, factory:TypeFactory):[string, string|number][]{
         const keys:string[] = Object.keys(json);
         let res:[string, any][] = [];
