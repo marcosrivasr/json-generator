@@ -1,12 +1,8 @@
-doctype html
-html(lang="en")
-    head
-        title=res
-    body
-        h1 JSON Placeholder Server
-        ul
-            each file in files
-                li
-                    a(
-                        href=file.replace('.json', '')
-                    )=file
+include header
+h1 JSON Placeholder Server
+ul
+    each file in files
+        li
+            a(
+                href=file.replace('.json', '')
+            )=file

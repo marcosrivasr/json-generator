@@ -1,0 +1,24 @@
+
+include header
+if error
+    .class= error
+div(class="container col-2")
+    form(action="/actions/create", method="POST", class="col")
+        h3 Response
+        label(for="name", required) Name of dataset
+        input(type="text", name="name", autocomplete="off")
+        if src
+            textarea( name="data", cols="30", rows="10", autocomplete="off")=src
+        else
+            textarea(name="data", cols="30", rows="10", autocomplete="off")
+
+        div
+            input(type="submit", value="Crear")
+    div(class="col")
+        h3 Response
+        if result
+            textarea(id="response", cols="30", rows="10", disabled)=result
+        else
+            textarea(id="response")
+        form(action="")
+            input(type="submit", value="Guardar")
