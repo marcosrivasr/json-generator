@@ -3,9 +3,14 @@ import {join, basename} from 'path';
 import { readFile, readdir } from 'fs/promises';
 
 import cors from 'cors';
+import { allowedNodeEnvironmentFlags } from 'process';
+import Generator from './generator';
 
 const app = express();
 let filenames:string[] = [];
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.static('./public'));
 app.use(cors());
 app.set('views', './src/views');
 app.set('view engine', 'pug');
@@ -16,8 +21,6 @@ app.get('/', async (req, res) => {
         const files = await readdir('./src/apis', 'utf-8');
         
         files.forEach(file =>{
-            if(filenames.indexOf('.json')> -1){
-            }
             filenames.push(file);
         });
         console.log(filenames);
@@ -28,6 +31,27 @@ app.get('/', async (req, res) => {
     }catch(error){
         console.error(error);
     }
+});
+
+app.get('/actions/add', (req, res) => {
+    res.render('new');
+});
+app.post('/actions/create', (req, res) => {
+    const {data, name} = req.body;
+    console.log(req.body);
+    if(data == '' || data == undefined){
+        res.render('new', {
+            error:'Fill the name of the dataset and the content before'
+        });
+        return;
+    }
+    const json = JSON.parse(data);
+    const generator = new Generator();
+    const result = generator.createJSON(json);
+    res.render('new', {
+        src: data,
+        result: result
+    });
 });
 
 app.get('/:name', async (req, res) => {
