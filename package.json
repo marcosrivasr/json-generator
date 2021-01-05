@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "monaco-editor": "^0.21.2",
     "open": "^7.3.0",
     "pug": "^3.0.0",
     "uuid": "^8.2.0",
