@@ -100,7 +100,7 @@ export default class TypeFactory{
                 return [key, generateRandomEmail()];
             break;
             default:
-                throw new Error(`Data type ${inputs[0]} not recorgnized`);
+                throw new Error(`Data type '${inputs[0]}' not recorgnized`);
         } 
     }
 }
