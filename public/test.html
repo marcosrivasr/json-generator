@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+
+    <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
+
+    <button id="boton">asd</button>
+    <script src="monaco-editor/min/vs/loader.js"></script>
+		<script>
+			require.config({ paths: { vs: 'monaco-editor/min/vs' } });
+            var editor;
+			require(['vs/editor/editor.main'], function () {
+				editor = monaco.editor.create(document.getElementById('container'), {
+					value: ['{\n\n}'].join('\n'),
+					language: 'JSON'
+				});
+            });
+            
+            document.querySelector('#boton').addEventListener('click', e => {
+                const text = document.querySelector('#container').textContent;
+                console.log(editor);
+            });
+		</script>
+</body>
+</html>
