@@ -9,22 +9,27 @@
 
     <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
 
-    <button id="boton">asd</button>
+	<button id="bsave">Guardar</button>
+
     <script src="monaco-editor/min/vs/loader.js"></script>
 		<script>
+			let editor;
+			document.querySelector('#bsave').addEventListener('click', e  => {
+				save();
+			});
+
 			require.config({ paths: { vs: 'monaco-editor/min/vs' } });
-            var editor;
+            
 			require(['vs/editor/editor.main'], function () {
 				editor = monaco.editor.create(document.getElementById('container'), {
 					value: ['{\n\n}'].join('\n'),
 					language: 'JSON'
 				});
             });
-            
-            document.querySelector('#boton').addEventListener('click', e => {
-                const text = document.querySelector('#container').textContent;
-                console.log(editor);
-            });  
+			
+			function save(){
+				console.log(editor.getValue());
+			}
 		</script>
 </body>
 </html>
