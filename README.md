@@ -15,24 +15,38 @@ To use the utility you need to create a simple JSON template and specify the pro
 ```javascript
 {
     "id": "uuid",
+    "id2": "id",
+    "id3": "id",
+    "title": "title",
+    "text": "paragraph",
+    "todo": "text",
+    "name": "first-name",
+    "city": "city",
+    "country": "country",
+    "last-name": "last-name",
     "age": "age",
     "phone": "phone",
+    "grade": "decimal",
     "price": "price",
     "card": "credit-card",
+    "aniversary": "date",
+    "color": "choice red blue yellow",
     "friends": [
         {"repeat": 5},
         {
             "id": "index",
             "name": "first-name",
-            "last-name": "last-name"
+            "last-name": "last-name",
+            "company": "company",
+            "email": "email"
         }
     ],
     "check-ins":{
         "id": "id",
-        "name": "first-name",
+        "name": "full-name",
         "opened": "date",
         "users": [
-            {"repeat": 15},
+            {"repeat": 5},
             {
                 "id": "uuid",
                 "index": "index",
