@@ -1,8 +1,11 @@
 include header
-h1 JSON Placeholder Server
-ul
-    each file in files
-        li
-            a(
-                href=file.replace('.json', '')
-            )=file
+
+div(class="main-container")
+    h1 JSON Placeholder Server
+    ul
+        each file in files
+            li
+                a(
+                    href=file.replace('.json', '')
+                )=file
+                
