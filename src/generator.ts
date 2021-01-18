@@ -1,19 +1,15 @@
 import {readFileSync, readFile,writeFileSync} from 'fs';
-import { array } from 'yargs';
 import TypeFactory from './typeFactory';
 
 export default class Generator{
 
     private factory?:TypeFactory;
-    private output:any;
+    private output:[string, string|number][]=[];
     private filecontent:string = '';
 
     constructor(filename?:string){
-        //new factory instance
         this.factory = new TypeFactory();
-
         if(filename !== undefined){
-            //if filename exists, read and return the text of the file
             this.filecontent = JSON.parse(readFileSync(filename, 'utf8'));
         }
     }
@@ -22,12 +18,7 @@ export default class Generator{
      * @param filename Filename for the output file
      */
     generateJSON(filename:string){
-        let output = null;
-        if(Array.isArray(this.filecontent)){
-            output = this.parse(this.filecontent, this.factory!);
-        }else{
-            output = this.parse(this.filecontent, this.factory!);
-        }
+        this.output = this.parse(this.filecontent, this.factory!);
 
         const finalJSON = Object.fromEntries(this.output);
 
@@ -35,28 +26,28 @@ export default class Generator{
     }
 
     createJSON(text:string):string{
-        console.log('Start parse process...');
-        let output = null;
+        let output:[string, string|number][]|[] = [];
+        let finalJSON;
         if(Array.isArray(text)){
-            console.log('************************** El JSON es un arreglo inicial');
-            const objSettings   = text[0];
-            const template      = text[1];
-            const repeat        = objSettings['repeat'];
+            console.log('****** El archivo inicia con un arreglo');
+            let res:[string, any][] = [];
+            const settings = text[0];
+            const obj = text[1];
+            const repeat = settings['repeat'];
             let temp = [];
-
+            
             for(let i = 1; i <= repeat; i++){
-                const item = new Map<string, any>([this.parse(template, this.factory!)]);
-                console.log('0.', item);
-                const object = Object.fromEntries(item);
-                temp.push(object);
+                temp.push(Object.fromEntries(this.parse(obj, this.factory!)));
             }
-            output = [...temp];
+            res.push(['result',temp]);
+            output = res;
+            finalJSON = Object.fromEntries(output);
+            finalJSON = finalJSON.result;
         }else{
-            console.log('************************** El JSON es un objeto inicial');
             output = this.parse(text, this.factory!);
+            finalJSON = Object.fromEntries(output);
         }
-        
-        const finalJSON = Object.fromEntries(output);
+
         return JSON.stringify(finalJSON,null, '\t');
     }
 
@@ -65,26 +56,42 @@ export default class Generator{
      * @param json JSON text
      * @param factory 
      */
-    private parse(json:any, factory:TypeFactory){
+    private parse(json:any, factory:TypeFactory):[string, string|number][]{
         const keys:string[] = Object.keys(json);
         let res:[string, any][] = [];
         
-        
+        console.log("---------- Evaluar", json);
         keys.forEach(key => {
             const type = json[key];
             
-            if(typeof type === 'string'){
-                res.push(factory.getDataValue(key, type));
+            if(typeof type === 'string' && isNaN(json[key])){
+                const item = factory.getDataValue(key, type);
+                console.log('-------------------Resultado:', item);
+                res.push(item);
+
             }else if(typeof type === 'object'){
                 const subobj = type;
                 let subfactory = new TypeFactory();
+
                 if(!Array.isArray(type)){
-                    res.push([key, Object.fromEntries(this.parse(subobj, subfactory))]);
-                
+                    const item = Object.fromEntries(this.parse(subobj, subfactory));
+                    res.push([key, item]);
+                }else{
+                    const settings = subobj[0];
+                    const obj = subobj[1];
+                    const repeat = settings['repeat'];
+                    let temp = [];
+                    
+                    for(let i = 1; i <= repeat; i++){
+
+                        temp.push(Object.fromEntries(this.parse(obj, subfactory)));
+                    }
+                    res.push([key, temp]);
                 }
                 
             }
         });
-    }
 
+        return res;
+    }
 }
