@@ -8,7 +8,7 @@
     "todos": "ts-node src/index --source template-todos.json --destination output-todos.json",
     "comments": "ts-node src/index --source template-comments.json --destination output-comments.json",
     "shopping": "ts-node src/index -i template-shopping-items.json -o output-shopping-items.json",
-    "serve": "ts-node src/server"
+    "serve": "ts-node-dev src/server"
   },
   "author": "Marcos Rivas Rojas",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "@types/yargs": "^15.0.9",
     "express": "^4.17.1",
     "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.1.1",
     "typescript": "^3.9.6"
   },
   "dependencies": {

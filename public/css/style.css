@@ -47,4 +47,9 @@ menu ul li a:hover {
   border-radius: 5px;
 }
 
+.editor {
+  border: solid 1px #ccc;
+  height: 400px;
+}
+
 /*# sourceMappingURL=style.css.map */
