@@ -1,0 +1,65 @@
+@import 'config';
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+menu{
+    background-color: $primary-color;
+    padding: 0;
+    margin: 0;
+    
+    ul{
+        margin: 0;
+        display: flex;
+        list-style: none;
+        li{
+            a{
+                color: $secondary-color;
+                text-decoration: none;
+                display: block;
+                padding: 10px; 
+
+                &:hover{
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                }
+            }
+            
+        }
+    }
+}
+
+.main-container{
+    width: 800px;
+    margin: 20px auto;
+}
+
+.files-container{
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            a{
+                color: $primary-color;
+                text-decoration: none;
+                display: block;
+                padding: 15px 10px;
+
+                &:hover{
+                    background-color: $highlight-color;
+                    color: $secondary-color;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+.editor{
+    border: solid 1px #ccc;
+    height: 400px;
+}
